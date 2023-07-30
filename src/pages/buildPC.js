@@ -3,8 +3,8 @@ import RootLayout from "@/components/layouts/RootLayout";
 import SelectedComponentCard from "@/components/selectedComponentCard";
 import React from "react";
 import { useSelector } from "react-redux";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const categories = [
   {
@@ -61,61 +61,109 @@ export default function BuildPCPage() {
     storageDevice,
     monitor,
     others,
-  } = pcComponents || {}
+  } = pcComponents || {};
 
   const notify = () => toast.success("Successfully Build Your PC!");
 
   return (
     <>
-    <section className="mt-8">
-      <h1 className="text-center text-xl font-bold">PC Builder</h1>
-      <p className="text-sm text-center">Select Your Components</p>
+      <section className="mt-8">
+        <h1 className="text-center text-xl font-bold">PC Builder</h1>
+        <p className="text-sm text-center">Select Your Components</p>
 
-      <div className="flex justify-between items-center px-3 py-2 bg-gray-500 text-white mt-5">
-        <p className="font-semibold">Your Build PC</p>
-        <button className="py-1 px-4 font-semibold bg-gray-700 rounded">
-          Reset
-        </button>
-      </div>
+        <div className="flex justify-between items-center px-3 py-2 bg-gray-500 text-white mt-5">
+          <p className="font-semibold">Your Build PC</p>
+          <button className="py-1 px-4 font-semibold bg-gray-700 rounded">
+            Reset
+          </button>
+        </div>
 
-      {categories.map((category) => {
-        if (category.title === "CPU / Processor" && cpu) {
-          return <SelectedComponentCard key={category.id} product={cpu} />;
-        }
-        if (category.title === "Motherboard" && motherboard) {
-          return (
-            <SelectedComponentCard key={category.id} product={motherboard} />
-          );
-        }
-        if (category.title === "RAM" && ram) {
-          return <SelectedComponentCard key={category.id} product={ram} />;
-        }
-        if (category.title === "Power Supply Unit" && powerSupplyUnit) {
-          return (
-            <SelectedComponentCard key={category.id} product={powerSupplyUnit} />
-          );
-        }
-        if (category.title === "Storage Device" && storageDevice) {
-          return (
-            <SelectedComponentCard key={category.id} product={storageDevice} />
-          );
-        }
-        if (category.title === "Monitor" && monitor) {
-          return <SelectedComponentCard key={category.id} product={monitor} />;
-        }
-        if (category.title === "Others" && others) {
-          return <SelectedComponentCard key={category.id} product={others} />;
-        } else {
-          return (
-            <PCBuilderCategoryCard key={category.id} category={category} />
-          );
-        }
-      })}
-      <div className="flex justify-end mt-4">
-        <button onClick={notify} disabled={Object.values(pcComponents).filter(Boolean).length >= 5 ? false : true} className="py-2 px-4 font-semibold bg-green-300 rounded-md">Complete Build</button>
-      </div>
-    </section>
-    <ToastContainer />
+        {categories.map((category) => {
+          if (category.title === "CPU / Processor" && cpu) {
+            return (
+              <>
+                <PCBuilderCategoryCard key={category.id} category={category} />
+                <SelectedComponentCard key={category.id} product={cpu} />
+              </>
+            );
+          }
+          if (category.title === "Motherboard" && motherboard) {
+            return (
+              <>
+                <PCBuilderCategoryCard key={category.id} category={category} />
+                <SelectedComponentCard
+                  key={category.id}
+                  product={motherboard}
+                />
+              </>
+            );
+          }
+          if (category.title === "RAM" && ram) {
+            return (
+              <>
+                <PCBuilderCategoryCard key={category.id} category={category} />
+                <SelectedComponentCard key={category.id} product={ram} />
+              </>
+            );
+          }
+          if (category.title === "Power Supply Unit" && powerSupplyUnit) {
+            return (
+              <>
+                <PCBuilderCategoryCard key={category.id} category={category} />
+                <SelectedComponentCard
+                  key={category.id}
+                  product={powerSupplyUnit}
+                />
+              </>
+            );
+          }
+          if (category.title === "Storage Device" && storageDevice) {
+            return (
+              <>
+                <PCBuilderCategoryCard key={category.id} category={category} />
+                <SelectedComponentCard
+                  key={category.id}
+                  product={storageDevice}
+                />
+              </>
+            );
+          }
+          if (category.title === "Monitor" && monitor) {
+            return (
+              <>
+                <PCBuilderCategoryCard key={category.id} category={category} />
+                <SelectedComponentCard key={category.id} product={monitor} />
+              </>
+            );
+          }
+          if (category.title === "Others" && others) {
+            return (
+              <>
+                <PCBuilderCategoryCard key={category.id} category={category} />
+                <SelectedComponentCard key={category.id} product={others} />
+              </>
+            );
+          } else {
+            return (
+              <PCBuilderCategoryCard key={category.id} category={category} />
+            );
+          }
+        })}
+        <div className="flex justify-end mt-4">
+          <button
+            onClick={notify}
+            disabled={
+              Object.values(pcComponents).filter(Boolean).length >= 5
+                ? false
+                : true
+            }
+            className="py-2 px-4 font-semibold bg-green-300 rounded-md"
+          >
+            Complete Build
+          </button>
+        </div>
+      </section>
+      <ToastContainer />
     </>
   );
 }

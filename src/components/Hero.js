@@ -7,8 +7,8 @@ export default function Hero() {
   return (
     <Carousel autoplay className="mt-8">
       <div>
-        <div className="grid grid-cols-2 gap-5 items-center">
-          <div className="pr-5">
+        <div className="md:grid md:grid-cols-2 flex flex-col gap-5 items-center">
+          <div className="pr-5 order-last">
             <h1 className="text-5xl font-bold">Worlds Biggest PC Supplier</h1>
             <p className="mt-5 text-gray-500">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -22,8 +22,8 @@ export default function Hero() {
         </div>
       </div>
       <div>
-        <div className="grid grid-cols-2 gap-5 items-center">
-          <div>
+        <div className="md:grid md:grid-cols-2 flex flex-col gap-5 items-center">
+          <div className="order-last">
             <h1 className="text-5xl font-bold">Build Your Dream PC With Us</h1>
             <p className="mt-5 text-gray-500">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.

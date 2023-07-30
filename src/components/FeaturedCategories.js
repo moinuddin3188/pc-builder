@@ -52,7 +52,7 @@ export default function FeaturedCategories() {
   return (
     <div className="mt-16">
       <h1 className="text-2xl text-center font-bold">Categories</h1>
-      <div className="grid grid-cols-7 gap-5 mt-8">
+      <div className="grid lg:grid-cols-7 md:grid-cols-3 sm:grid-cols-1 gap-5 mt-8">
         {categories.map((category) => (
           <div
             onClick={() => router.push(category.route)}

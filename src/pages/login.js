@@ -7,12 +7,12 @@ export default function LoginPage() {
     <>
       <Navbar />
       <div className="flex justify-center items-center h-screen bg-gray-100">
-        <div className="shadow-lg p-8 w-[400px] bg-white rounded-lg">
+        <div className="shadow-lg p-8 w-[200px] md:w-[400px] bg-white rounded-lg">
           <div className="rounded-md py-2 px-3 bg-yellow-100 hover:bg-green-200 cursor-pointer">
             <p
               onClick={() =>
                 signIn("github", {
-                  callbackUrl: "http://localhost:3000/",
+                  callbackUrl: "https://pc-builder-bice.vercel.app/",
                 })
               }
               className="text-center font-semibold"

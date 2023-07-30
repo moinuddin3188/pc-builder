@@ -14,7 +14,7 @@ export default function ProductDetailPage({product}) {
 
   return (
     <>
-      <section className="grid grid-cols-2 gap-8 mt-16">
+      <section className="grid md:grid-cols-2 grid-cols-1 gap-8 mt-16">
         <section className="shadow-lg p-16 rounded-md border-t-4 border-teal-300">
           <Image
             className="border"

@@ -14,8 +14,8 @@ export default function SelectedComponentCard({ product }) {
   const averageRating = totalRating / reviews.length;
 
   return (
-    <div className="grid grid-cols-10 items-center p-5 border">
-      <div className="flex items-center gap-8 col-span-8">
+    <div className="grid md:grid-cols-10 items-center p-5 border border-t-0">
+      <div className="flex items-center gap-8 md:col-span-7 col-span-10">
         <Image src={image} width={60} height={60} alt="" />
         <div>
           <p className="text-lg font-semibold">{title}</p>
@@ -25,10 +25,10 @@ export default function SelectedComponentCard({ product }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className="col-span-5 md:col-span-2 mt-2 md:mt-0">
         <p className="text-lg font-bold">Tk {price}</p>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-end col-span-5 md:col-span-1 mt-2 md:mt-0">
         <button
           onClick={() => dispatch(removeFromPcBuilder(product))}
           className="py-2 px-4 rounded-md border border-red-300"

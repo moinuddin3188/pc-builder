@@ -1,14 +1,22 @@
 import ProductCard from "@/components/ProductCard";
 import RootLayout from "@/components/layouts/RootLayout";
+import { useRouter } from "next/router";
 import React from "react";
 
 export default function ProductPage({ products }) {
+  const router = useRouter();
+
   return (
-    <section className="grid grid-cols-4 gap-8 py-10">
-      {products.map((product) => (
-        <ProductCard key={product._id} product={product} />
-      ))}
-    </section>
+    <>
+      <h1 className="text-center text-2xl font-bold mt-8">
+        {router.query.category}
+      </h1>
+      <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  gap-8 py-10">
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </section>
+    </>
   );
 }
 
@@ -29,7 +37,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { params } = context;
 
-  const res = await fetch(`https://pc-builder-backend.onrender.com/category/${params.category}`);
+  const res = await fetch(
+    `https://pc-builder-backend.onrender.com/category/${params.category}`
+  );
   const data = await res.json();
 
   return {
